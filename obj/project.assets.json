@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erfan\\Downloads\\BarcaLive_DesignD_Full\\BarcaLive.csproj",
+      "projectUniqueName": "C:\\Users\\erfan\\Downloads\\BarcaLive_WithAuthors\\BarcaLive_DesignD_Full\\BarcaLive.csproj",
       "projectName": "BarcaLive",
-      "projectPath": "C:\\Users\\erfan\\Downloads\\BarcaLive_DesignD_Full\\BarcaLive.csproj",
+      "projectPath": "C:\\Users\\erfan\\Downloads\\BarcaLive_WithAuthors\\BarcaLive_DesignD_Full\\BarcaLive.csproj",
       "packagesPath": "C:\\Users\\erfan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erfan\\Downloads\\BarcaLive_DesignD_Full\\obj\\",
+      "outputPath": "C:\\Users\\erfan\\Downloads\\BarcaLive_WithAuthors\\BarcaLive_DesignD_Full\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erfan\\AppData\\Roaming\\NuGet\\NuGet.Config"
