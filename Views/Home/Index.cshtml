@@ -1,0 +1,69 @@
+@model FullDashboardViewModel
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="row mb-3">
+  <div class="col-md-8">
+    <div class="d-flex align-items-center mb-3">
+      <img src="/img/barca.png" style="width:80px;height:80px;margin-right:12px;" />
+      <div>
+        <h1 class="mb-0">FC Barcelona — Live Dashboard</h1>
+        <small class="text-muted">Senaste matcher och form</small>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-3"><div class="card p-3"><small>Spelade</small><h4>@Model.Stats.Played</h4></div></div>
+      <div class="col-sm-3"><div class="card p-3"><small>Vinster</small><h4>@Model.Stats.Wins</h4></div></div>
+      <div class="col-sm-3"><div class="card p-3"><small>Oavgjort</small><h4>@Model.Stats.Draws</h4></div></div>
+      <div class="col-sm-3"><div class="card p-3"><small>Förluster</small><h4>@Model.Stats.Losses</h4></div></div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>Matcher</h5>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead><tr><th>Datum</th><th>Match</th><th>Resultat</th></tr></thead>
+            <tbody>
+              @foreach(var m in Model.Matches.OrderByDescending(x=>x.UtcDate)) {
+                <tr>
+                  <td>@m.UtcDate.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
+                  <td>@m.HomeTeam - @m.AwayTeam</td>
+                  <td>@(m.HomeScore.HasValue ? $"{m.HomeScore} - {m.AwayScore}" : "Kommande")</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>Senaste Barcelona-nyheter</h5>
+        @if(Model.News.Any()) {
+          foreach(var a in Model.News) {
+            <div class="d-flex mb-3">
+              <img src="@(string.IsNullOrEmpty(a.ImageUrl) ? "/img/news-placeholder.png" : a.ImageUrl)" style="width:80px;height:60px;object-fit:cover;margin-right:10px;border-radius:6px;" />
+              <div>
+                <a href="@a.Url" target="_blank">@a.Title</a>
+                <div class="text-muted small">@a.Source — @a.PublishedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</div>
+              </div>
+            </div>
+          }
+        } else {
+          <p>Inga nyheter hittades.</p>
+        }
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h6>Form</h6>
+        <p>@Model.Stats.FormLast5</p>
+      </div>
+    </div>
+  </div>
+</div>

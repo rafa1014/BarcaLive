@@ -1,0 +1,19 @@
+@model IEnumerable<NewsArticle>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2>Barcelona-nyheter</h2>
+@foreach(var a in Model) {
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-4">
+        <img src="@(string.IsNullOrEmpty(a.ImageUrl)?"/img/news-placeholder.png":a.ImageUrl)" class="img-fluid" />
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h5><a href="@a.Url" target="_blank">@a.Title</a></h5>
+          <p class="small text-muted">@a.Source — @a.PublishedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</p>
+          <p>@a.Description</p>
+        </div>
+      </div>
+    </div>
+  </div>
+}
