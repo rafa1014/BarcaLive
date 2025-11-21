@@ -1,4 +1,4 @@
-// Author: Rafa
+// Author: Rafa och Rida 
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
