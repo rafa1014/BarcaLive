@@ -1,4 +1,4 @@
-// Author: Rafa
+// Author: Rafa och Rida 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
