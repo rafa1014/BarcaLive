@@ -1,4 +1,4 @@
-// Author: Rafa
+// Author: Rafa och Rida
 using System.Linq;
 using System.Collections.Generic;
 
